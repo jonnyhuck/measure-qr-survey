@@ -17,7 +17,7 @@ for id, row in parks.iterrows():
     )
 
     # add data to qr object, 'make' and export to image
-    qr.add_data(f"https://qr.huckg.is/{row.town}/{row['site.name']}")
+    qr.add_data(f"http://qr.huckg.is/{row.town}/{row['site.name']}")
     qr.make(fit=True)
     qrcode_im = qr.make_image()
     qrcode_im.save(f"./generator/qr_codes/{row.town}-{row['site.name']}.png", 'PNG')
