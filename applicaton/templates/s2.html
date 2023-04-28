@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deer and Tick Survey</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"> -->
+
+    <script>
+      /**
+       * Update visibility of daily question
+       */
+      function isYes(){
+        if (document.getElementById('deer').value === 'Yes'){
+          document.getElementById('deer_container').style.display = 'inherit';
+        } else {
+          document.getElementById('deer_container').style.display = 'none';
+        }
+      }
+    </script>
+  </head>
+  <body onload="isYes();">
+
+  <h1>{{park}} Deer (2/3)</h1>  
+  <p>Ticks feed on deer, this is why we are interested in deer at {{park}}:</p>
+  
+  <form action="/s3" method="post">
+
+    <p>Within the last 3 years have you seen deer at {{park}}?</p>
+    <select name="deer" id="deer" onchange="isYes();">
+      <option hidden disabled selected value> -- select an option -- </option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    
+    <span id="deer_container" style="display:none;">
+
+      <p>Approximately how often do you see deer at {{park}}?</p>
+      <select name="howoften" id="howoften">
+        <option hidden disabled selected value> -- select an option -- </option>
+        <option value="Never">Never</option>
+        <option value="Daily">Daily</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Annually">Annually</option>
+        <option value="Less then annually">Less than annually</option>
+      </select>
+
+      <p>When was the last time you saw a deer at {{park}}?</p>
+      <select name="lasttime" id="lasttime">
+        <option hidden disabled selected value> -- select an option -- </option>
+        <option value="Never">Never</option>
+        <option value="Today">Today</option>
+        <option value="In the last 7 days">In the last 7 days</option>
+        <option value="In the last 4 weeks">In the last 4 weeks</option>
+        <option value="In the last 12 months">In the last 12 months</option>
+        <option value="More than a year ago">More than a year ago</option>
+      </select>
+            
+      <p>How many deer do you usually see at {{park}}?</p>
+      <select name="howmany" id="howmany">
+        <option hidden disabled selected value> -- select an option -- </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3+</option>
+      </select>
+              
+      <p>What areas in and around {{town}} are deer present? (Please list as many as you know)</p>
+      <textarea id="whatareas" name="whatareas"></textarea>
+    </span>
+
+    <input type="hidden" id="userid" name="userid" value="{{userid}}">
+    <input type="hidden" id="town" name="town" value="{{town}}">
+    <input type="hidden" id="park" name="park" value="{{park}}">
+    <input type="hidden" id="dog" name="dog" value="{{dog}}">
+    <br><input type="submit" value="Next"></button>
+
+    <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
+  </form>
+  </body>
+</html>

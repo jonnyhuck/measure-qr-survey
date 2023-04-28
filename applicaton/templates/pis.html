@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deer and Tick Survey</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"> -->
+</head>
+<body>
+    <h1>Welcome to the tick and deer survey</h1>
+    <p>
+      This survey intends to gain information of ticks and deer across the UK. We would like you to share your knowledge of ticks and deer in {{town}}. 
+      Here we will ask you questions on ticks and deer in the local area. We do not ask personal or traceable questions. Although we do ask how people 
+      generally spend their time here, this is so we can place your tick and deer answers in the context of how you use this area. This will take less 
+      than 3 mins to complete.
+    </p>
+    <ul>
+      <li>I understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason, without my legal rights 
+        being affected.</li>
+      <li>I confirm that I agree to the way my data will be collected and processed and that data will be stored for up to 10 years in University 
+        archiving facilities in accordance with relevant Data Protection policies and regulations.</li>
+      <li>I understand that all data and information I provide will be kept confidential and will be seen only by study researchers and regulators 
+        whose job it is to check the work of researchers.</li>
+      <li>I am over 18 years old</li>
+      <li>I agree to take part in the study.</li>
+    </ul>
+    <form action="/s1" method="post">
+      <input type="hidden" id="userid" name="userid" value="{{userid}}">
+      <input type="hidden" id="town" name="town" value="{{town}}">
+      <input type="hidden" id="park" name="park" value="{{park}}">
+      <input type="submit" value="Agree"></button>
+    </form>
+    <img src="{{url_for('static', filename='images/salford.png')}}">
+    <img src="{{url_for('static', filename='images/glasgow.png')}}">
+    <img src="{{url_for('static', filename='images/manchester.png')}}">
+    <img src="{{url_for('static', filename='images/nerc.png')}}">
+    <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
+  </body>
+</html>

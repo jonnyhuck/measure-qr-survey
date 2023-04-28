@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Deer and Tick Survey</title>
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"> -->
+        <script src="{{ url_for('static', filename='js/tea.js')}}"></script>
+    </head>
+    <body>
+        <h1>Thank you for responding to our survey</h1>
+        <p>This survey is part of the <a href="https://nercmeasureproject.co.uk/">MEaSURE project</a>, involving researchers at the Universities of Manchester, Glasgow and Salford.</p>
+        <p>We hope to post our results by January 2024 at the link above.</p>
+        <p>Any questions about the study please contact Jess Hall at <span id="dump"></span><noscript>(please activate JavaScript to see the email address)</noscript>.</p>
+        <script>document.getElementById("dump").innerHTML = Tea.decrypt("nlh+7nhEhzkoxiwKg83LuqVimLULRpAboqRpSJSstdu3ffgch2SAzOg1FaS3b1Z9SF/c5UNdpqSzGqj7f1EOtbGplH1TUum0", "measure");</script>
+        <!-- <button onclick="window.location.href='https://nercmeasureproject.co.uk/';">Finish</button> -->
+
+        <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
+    </body>
+</html>
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deer and Tick Survey</title>
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
+
+    <script>
+      /**
+       * Update visibility of dog question
+       */
+       function hasDog(){
+        if ('{{dog}}' === 'Yes'){
+          document.getElementById('dog_container').style.display = 'inherit';
+        } else {
+          document.getElementById('dog_container').style.display = 'none';
+        }
+      }
+
+      /**
+       * Move to step 2 if they know what a tick looks like
+       */
+       function nextStep(){
+          document.getElementById('step2').style.display = 'inherit';
+          document.getElementById('step1').style.display = 'none';
+      }
+
+      /**
+       * Move to step 2 if they know what a tick looks like
+       */
+       function incorrect(){
+          alert("Incorrect, please try again");
+      }
+    </script>
+  </head>
+
+  <body onload="hasDog();">
+    
+    <h1>{{park}} Ticks (3/3)</h1>
+    <p>When answering the questions please think of  the last 3 years during your visits to {{park}}</p>
+
+    <!-- Step 1: Can you identify a tick? -->
+    <div id="step1">
+      <p>Select the Tick from the pictures below</p>
+      <img src="{{url_for('static', filename='images/tick1.jpg')}}" onclick="incorrect()">
+      <img src="{{url_for('static', filename='images/tick2.jpg')}}" onclick="nextStep()">
+      <img src="{{url_for('static', filename='images/tick3.jpg')}}" onclick="incorrect()">
+    </div>
+
+    <!-- Step 2: Questions -->
+    <div id="step2" style="display:none;">
+
+      <form action="/thankyou" method="post">
+
+        <h2>CORRECT! This is a tick:</h2>
+        <p>The pictures below show an unfed adult and a nymphal tick unfed (left) and a fed (engorged) nymphal (right). 
+        Ticks can look different depending on if they have fed or not. Ticks can range from 1.5-mm to 3.5mm in length (similar to a grain of rice) 
+        and when fed can be as long as 11mm (similar to a raisin). Ticks feed on blood.</p>
+        <img src="{{url_for('static', filename='images/tick4.jpg')}}">
+        <img src="{{url_for('static', filename='images/tick5.jpg')}}">
+          
+        <p>Within the last 3 years have you found a tick in {{park}}? (on your clothing and /or attached to your person)</p>
+        <select name="foundtick" id="foundtick" onchange="isYes();">
+          <option hidden disabled selected value> -- select an option -- </option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <span id="dog_container">
+          <p>Within the last 3 years, have your dog(s) had a tick from {{park}}? (on their fur and /or attached to them)</p>
+          <select name="dogtick" id="dogtick" onchange="isYes();">
+            <option hidden disabled selected value> -- select an option -- </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </span>
+
+        <p>there areas in and around {{town}} known for ticks? (Please list as many as you know)</p>
+        <textarea id="tickareas" name="tickareas"></textarea>
+
+        <br><input type="submit" value="Done"></button>
+      </form>
+    </div>
+    <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
+  </body>
+</html>

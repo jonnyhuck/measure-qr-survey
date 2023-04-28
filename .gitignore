@@ -1,0 +1,6 @@
+__pycache__/
+*.docx
+*.xlsx
+generator/qr_codes
+*.yml
+.DS_Store
