@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Deer and Tick Survey</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
     <script>
       /**
@@ -22,77 +22,82 @@
 </head>
 <body onload="isDaily();">
 
-  <h1>{{park}} Activity 1/3</h1>  
-  <p>Please answer the following based on a typical visit to {{park}}:</p>
-  
-  <form action="/s2" method="post">
+  <div class="navbar">MEaSURE Deer and Tick Survey</div>
+  <div class="main">
 
-      <p>How often do you visit {{park}}?</p>
-      <select name="howoften" id="howoften" onchange="isDaily();">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option value="This is my first visit">This is my first visit</option>
-        <option value="Daily">Daily</option>
-        <option value="At least once per month">At least once per month</option>
-        <option value="At least once per year">At least once per year</option>
-        <option value="Less often">Less often</option>
-      </select>
-      
-      <span id="perday_container" style="display:none;">
-        <p>How many visits per day?</p>
-        <select name="perday" id="perday">
+    <h1>{{park}} Activity 1/3</h1>  
+    <p>Please answer the following based on a typical visit to {{park}}:</p>
+    
+    <form action="/s2" method="post">
+
+        <p>How often do you visit {{park}}?</p>
+        <select name="howoften" id="howoften" onchange="isDaily();">
           <option hidden disabled selected value> -- select an option -- </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="More">More</option>
+          <option value="This is my first visit">This is my first visit</option>
+          <option value="Daily">Daily</option>
+          <option value="At least once per month">At least once per month</option>
+          <option value="At least once per year">At least once per year</option>
+          <option value="Less often">Less often</option>
         </select>
-      </span>
+        
+        <span id="perday_container" style="display:none;">
+          <p>How many visits per day?</p>
+          <select name="perday" id="perday">
+            <option hidden disabled selected value> -- select an option -- </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="More">More</option>
+          </select>
+        </span>
 
-      <p>When did you start visiting {{park}}?</p>
-      <select name="startvisiting" id="startvisiting">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option value="This is my first visit">This is my first visit</option>
-        <option value="Less than 1 year ago">Less than 1 year ago</option>
-        <option value="1-2 years ago">1-2 years ago</option>
-        <option value="2-3 years ago">2-3 years ago</option>
-        <option value="More than 3 years ago">More than 3 years ago</option>
-      </select>
+        <p>When did you start visiting {{park}}?</p>
+        <select name="startvisiting" id="startvisiting">
+          <option hidden disabled selected value> -- select an option -- </option>
+          <option value="This is my first visit">This is my first visit</option>
+          <option value="Less than 1 year ago">Less than 1 year ago</option>
+          <option value="1-2 years ago">1-2 years ago</option>
+          <option value="2-3 years ago">2-3 years ago</option>
+          <option value="More than 3 years ago">More than 3 years ago</option>
+        </select>
 
-      <p>How long do you usually spend at {{park}} per visit?</p>
-      <select name="howlong" id="howlong">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option value="Less than 15 mins">Less than 15 mins</option>
-        <option value="15-30 mins">15-30 mins</option>
-        <option value="30-60 mins">30-60 mins</option>
-        <option value="More">Over 60 mins</option>
-      </select>
+        <p>How long do you usually spend at {{park}} per visit?</p>
+        <select name="howlong" id="howlong">
+          <option hidden disabled selected value> -- select an option -- </option>
+          <option value="Less than 15 mins">Less than 15 mins</option>
+          <option value="15-30 mins">15-30 mins</option>
+          <option value="30-60 mins">30-60 mins</option>
+          <option value="More">Over 60 mins</option>
+        </select>
 
-      <p>What time of day do you usually visit {{park}}?</p>
-      <textarea id="timeofday" name="timeofday"></textarea>
+        <p>What time of day do you usually visit {{park}}?</p>
+        <textarea id="timeofday" name="timeofday"></textarea>
 
-      <p>Do you usually have a dog(s) with you?</p>
-      <select name="dogs" id="dogs">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+        <p>Do you usually have a dog(s) with you?</p>
+        <select name="dogs" id="dogs">
+          <option hidden disabled selected value> -- select an option -- </option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
 
-      <p>What is usually your main activity when you visit {{park}}? (you may pick more than one)</p>
-      <input type="checkbox" id="activity1" name="activity1" value="Running/ walking on paths"><label for="activity1">Running/ walking on paths</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Running/ walking off paths"><label for="activity1">Running/ walking off paths</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Cycling"><label for="activity1">Cycling</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Playpark"><label for="activity1">Playpark</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Football"><label for="activity1">Football</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Sitting"><label for="activity1">Sitting</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Work"><label for="activity1">Work</label><br>
-      <input type="checkbox" id="activity1" name="activity1" value="Other"><label for="activity1">Other</label><br>
-  
-      <input type="hidden" id="userid" name="userid" value="{{userid}}">
-      <input type="hidden" id="town" name="town" value="{{town}}">
-      <input type="hidden" id="park" name="park" value="{{park}}">
-      <br><input type="submit" value="Next"></button>
-    </form>
-    <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
+        <p>What is usually your main activity when you visit {{park}}? (you may pick more than one)</p>
+        <input type="checkbox" id="activity1" name="activity1" value="Running/ walking on paths"><label for="activity1">Running/ walking on paths</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Running/ walking off paths"><label for="activity1">Running/ walking off paths</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Cycling"><label for="activity1">Cycling</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Playpark"><label for="activity1">Playpark</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Football"><label for="activity1">Football</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Sitting"><label for="activity1">Sitting</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Work"><label for="activity1">Work</label><br>
+        <input type="checkbox" id="activity1" name="activity1" value="Other"><label for="activity1">Other</label><br>
+    
+        <input type="hidden" id="userid" name="userid" value="{{userid}}">
+        <input type="hidden" id="town" name="town" value="{{town}}">
+        <input type="hidden" id="park" name="park" value="{{park}}">
+        <br><input class="form-submit-button" type="submit" value="Agree"></button>
+      </form>
+
+      <div class="copyright"><small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small></div>
+    </div>
   </body>
 </html>

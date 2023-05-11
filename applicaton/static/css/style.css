@@ -1,0 +1,130 @@
+/* load font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --green: #1d470e;
+}
+
+/* set font and add a little padding to the left and right */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 0;
+}
+
+/* justify paragraph text */
+p {
+    text-align: justify;
+}
+
+/* add a little space after bullet points */
+li {
+    margin: 0 0 0.5em 0;
+}
+
+/* make the text area look nice */
+textarea {
+    width: 100%;
+    resize: none;
+    background-color: #fdfdfd;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+/* holds the logos in a grid layout */
+.logo-container {
+    margin: 5% auto;
+    width:100%;
+    background-color:#fff;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-row: auto auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    .logo-item {
+        padding:2%;
+        display:flex;
+        align-items:center;
+    }
+}
+
+/* make sure logos stay inside the grid */
+.logo {
+    max-width: 95%;
+}
+
+/* holds the logos in a grid layout */
+.bug-container {
+    margin: 5% auto;
+    width:100%;
+    background-color:#fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    .bug-item {
+        padding:2%;
+        display:flex;
+        align-items:center;
+    }
+}
+
+/* make sure logos stay inside the grid */
+.bug {
+    width: 95%;
+    margin: auto;
+}
+
+/* holds the logos in a grid layout */
+.tick-container {
+    margin: 5% auto;
+    width:100%;
+    background-color:#fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    .tick-item {
+        padding:2%;
+        display:flex;
+        align-items:center;
+    }
+}   /* (uses bug class for images) */
+
+/* copyright should be small and centered */
+.copyright {
+    margin: 0 auto;
+    text-align: center;
+    font-size: small;
+    width:100%;
+    clear: left;
+}
+
+/* make the submit button look nice */
+.form-submit-button {
+	background-color: var(--green);
+	color: white;
+	border-style: outset;
+	border-color: darkgreen;
+	height: 30px;
+	width: 90px;
+    font-weight: bold;
+	text-shadow: none;
+    margin: 0.5em 0;
+}
+
+ /* The navigation bar */
+ .navbar {
+    overflow: hidden;
+    background-color: var(--green);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.3em;
+  }
+  
+  /* Main content */
+  .main {
+    margin: 50px 5% 0 5%; /* Add a top margin to avoid content overlay with Nav bar*/
+  } 
+

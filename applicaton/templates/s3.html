@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Deer and Tick Survey</title>
-    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
     <script>
       /**
@@ -44,45 +44,54 @@
     <!-- Step 1: Can you identify a tick? -->
     <div id="step1">
       <p>Select the Tick from the pictures below</p>
-      <img src="{{url_for('static', filename='images/tick1.jpg')}}" onclick="incorrect()">
-      <img src="{{url_for('static', filename='images/tick2.jpg')}}" onclick="nextStep()">
-      <img src="{{url_for('static', filename='images/tick3.jpg')}}" onclick="incorrect()">
+      <div class="bug-container">
+        <div class="bug-item"><img class="bug" src="{{url_for('static', filename='images/tick1.jpg')}}" onclick="incorrect()"></div>
+        <div class="bug-item"><img class="bug" src="{{url_for('static', filename='images/tick2.jpg')}}" onclick="nextStep()"></div>
+        <div class="bug-item"><img class="bug" src="{{url_for('static', filename='images/tick3.jpg')}}" onclick="incorrect()"></div>
+      </div>
     </div>
 
     <!-- Step 2: Questions -->
     <div id="step2" style="display:none;">
 
-      <form action="/thankyou" method="post">
+      <div class="navbar">MEaSURE Deer and Tick Survey</div>
+      <div class="main">
 
-        <h2>CORRECT! This is a tick:</h2>
-        <p>The pictures below show an unfed adult and a nymphal tick unfed (left) and a fed (engorged) nymphal (right). 
-        Ticks can look different depending on if they have fed or not. Ticks can range from 1.5-mm to 3.5mm in length (similar to a grain of rice) 
-        and when fed can be as long as 11mm (similar to a raisin). Ticks feed on blood.</p>
-        <img src="{{url_for('static', filename='images/tick4.jpg')}}">
-        <img src="{{url_for('static', filename='images/tick5.jpg')}}">
-          
-        <p>Within the last 3 years have you found a tick in {{park}}? (on your clothing and /or attached to your person)</p>
-        <select name="foundtick" id="foundtick" onchange="isYes();">
-          <option hidden disabled selected value> -- select an option -- </option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+        <form action="/thankyou" method="post">
 
-        <span id="dog_container">
-          <p>Within the last 3 years, have your dog(s) had a tick from {{park}}? (on their fur and /or attached to them)</p>
-          <select name="dogtick" id="dogtick" onchange="isYes();">
+          <h2>CORRECT! This is a tick:</h2>
+          <p>The pictures below show an unfed adult and a nymphal tick unfed (left) and a fed (engorged) nymphal (right). 
+          Ticks can look different depending on if they have fed or not. Ticks can range from 1.5-mm to 3.5mm in length (similar to a grain of rice) 
+          and when fed can be as long as 11mm (similar to a raisin). Ticks feed on blood.</p>
+          <div class="tick-container">
+            <div class="tick-item"><img class="bug" src="{{url_for('static', filename='images/tick4.jpg')}}"></div>
+            <div class="tick-item"><img class="bug" src="{{url_for('static', filename='images/tick5.jpg')}}"></div>
+          </div>
+            
+          <p>Within the last 3 years have you found a tick in {{park}}? (on your clothing and /or attached to your person)</p>
+          <select name="foundtick" id="foundtick" onchange="isYes();">
             <option hidden disabled selected value> -- select an option -- </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>
-        </span>
 
-        <p>Are there areas in and around {{town}} known for ticks? (please list as many as you know)</p>
-        <textarea id="tickareas" name="tickareas"></textarea>
+          <span id="dog_container">
+            <p>Within the last 3 years, have your dog(s) had a tick from {{park}}? (on their fur and /or attached to them)</p>
+            <select name="dogtick" id="dogtick" onchange="isYes();">
+              <option hidden disabled selected value> -- select an option -- </option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </span>
 
-        <br><input type="submit" value="Done"></button>
-      </form>
+          <p>Are there areas in and around {{town}} known for ticks? (please list as many as you know)</p>
+          <textarea id="tickareas" name="tickareas"></textarea>
+
+          <br><input class="form-submit-button" type="submit" value="Done"></button>
+        </form>
+      </div>
+
+      <div class="copyright"><small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small></div>
     </div>
-    <small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small>
   </body>
 </html>
