@@ -28,6 +28,8 @@ textarea {
     background-color: #fdfdfd;
     border: 1px solid #999;
     border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
 }
 
 /* holds the logos in a grid layout */

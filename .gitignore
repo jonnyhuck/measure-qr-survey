@@ -4,3 +4,4 @@ __pycache__/
 generator/qr_codes
 *.yml
 .DS_Store
+creds.py
