@@ -161,11 +161,11 @@ def thankyou():
             cursor.execute(sql, (
                 int(request.form['userid']), 
                 request.form['foundtick'],
-                request.form['dogtick'],
+                request.form['dogtick'] if request.form['dogtick'] in request.form else 'None',
                 request.form['tickareas'],
                 request.form['nattempts'],  # repeated for 'on duplicate' after here
                 request.form['foundtick'],
-                request.form['dogtick'],
+                request.form['dogtick'] if request.form['dogtick'] in request.form else 'None',
                 request.form['tickareas'],
                 request.form['nattempts']
                 ))
