@@ -9,41 +9,43 @@
 </head>
 <body>
     <div class="navbar">MEaSURE Deer and Tick Survey</div>
-    <div class="main">
-      <h1>Welcome to the tick and deer survey</h1>
-      <p>
-        This survey intends to gain information of ticks and deer across the UK. We would like you to share your knowledge of ticks and deer in {{town}}. 
-        Here we will ask you questions on ticks and deer in the local area.</p>
-      <p>We do not ask personal or traceable questions. Although we do ask how people 
-        generally spend their time here, this is so we can place your tick and deer answers in the context of how you use this area. This will take less 
-        than 3 mins to complete.
-      </p>
-      <ul>
-        <li>I understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason, without my legal rights 
-          being affected.</li>
-        <li>I confirm that I agree to the way my data will be collected and processed and that data will be stored for up to 10 years in University 
-          archiving facilities in accordance with relevant Data Protection policies and regulations.</li>
-        <li>I understand that all data and information I provide will be kept confidential and will be seen only by study researchers and regulators 
-          whose job it is to check the work of researchers.</li>
-        <li>I am over 18 years old</li>
-        <li>I agree to take part in the study.</li>
-      </ul>
-      
-      <form action="/s1" method="post">
-        <input type="hidden" id="userid" name="userid" value="{{userid}}">
-        <input type="hidden" id="town" name="town" value="{{town}}">
-        <input type="hidden" id="park" name="park" value="{{park}}">
-        <input class="form-submit-button" type="submit" value="Agree"></button>
-      </form>
+    <div class="page">
+      <div class="main">
+        <h1>Welcome to the tick and deer survey</h1>
+        <p>
+          This survey intends to gain information of ticks and deer across the UK. We would like you to share your knowledge of ticks and deer in {{town}}. 
+          Here we will ask you questions on ticks and deer in the local area.</p>
+        <p>We do not ask personal or traceable questions. Although we do ask how people 
+          generally spend their time here, this is so we can place your tick and deer answers in the context of how you use this area. This will take less 
+          than 3 mins to complete.
+        </p>
+        <ul>
+          <li>I understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason, without my legal rights 
+            being affected.</li>
+          <li>I confirm that I agree to the way my data will be collected and processed and that data will be stored for up to 10 years in University 
+            archiving facilities in accordance with relevant Data Protection policies and regulations.</li>
+          <li>I understand that all data and information I provide will be kept confidential and will be seen only by study researchers and regulators 
+            whose job it is to check the work of researchers.</li>
+          <li>I am over 18 years old</li>
+          <li>I agree to take part in the study.</li>
+        </ul>
+        
+        <form action="/s1" method="post">
+          <input type="hidden" id="userid" name="userid" value="{{userid}}">
+          <input type="hidden" id="town" name="town" value="{{town}}">
+          <input type="hidden" id="park" name="park" value="{{park}}">
+          <input class="form-submit-button" type="submit" value="Agree"></button>
+        </form>
 
-      <div class="logo-container">
-        <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/salford.png')}}"></div>
-        <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/glasgow.png')}}"></div>
-        <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/manchester.png')}}"></div>
-        <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/nerc.png')}}"></div>
+        <div class="logo-container">
+          <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/salford.png')}}"></div>
+          <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/glasgow.png')}}"></div>
+          <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/manchester.png')}}"></div>
+          <div class="logo-item"><img class="logo" src="{{url_for('static', filename='images/nerc.png')}}"></div>
+        </div>
+        
+        <div class="copyright"><small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small></div>
       </div>
-      
-      <div class="copyright"><small>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2023</noscript> Dr Jonny Huck</small></div>
     </div>
   </body>
 </html>

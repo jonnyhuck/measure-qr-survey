@@ -11,6 +11,12 @@ body {
     margin: 0 0;
 }
 
+/* stops the page getting too big on the desktop */
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 /* justify paragraph text */
 p {
     text-align: justify;
