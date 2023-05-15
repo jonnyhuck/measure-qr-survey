@@ -19,3 +19,5 @@ with connection:
         # create a new user
         sql = "INSERT INTO `users` (`town`, `park`) VALUES (%s, %s)"
         cursor.execute(sql, ("FAKE TOWN", "FAKE PARK"))
+
+    connection.commit()
