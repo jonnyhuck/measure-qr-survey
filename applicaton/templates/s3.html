@@ -30,9 +30,10 @@
       }
 
       /**
-       * Try again if they don't know what a tick looks like
+       * Incrememnt counter and try again if they don't know what a tick looks like
        */
        function incorrect(){
+          document.getElementById('nattempts').value = parseInt(document.getElementById('nattempts').value) + 1;
           alert("Incorrect, please try again");
       }
     </script>
@@ -76,7 +77,7 @@
               </div>
                 
               <p>Within the last 3 years have you found a tick in {{park}}? (on your clothing and /or attached to your person)</p>
-              <select name="foundtick" id="foundtick" onchange="isYes();" required>
+              <select name="foundtick" id="foundtick" required>
                 <option hidden disabled selected value> -- select an option -- </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -84,7 +85,7 @@
 
               <span id="dog_container">
                 <p>Within the last 3 years, have your dog(s) had a tick from {{park}}? (on their fur and /or attached to them)</p>
-                <select name="dogtick" id="dogtick" onchange="isYes();">
+                <select name="dogtick" id="dogtick">
                   <option hidden disabled selected value> -- select an option -- </option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -95,9 +96,9 @@
               <textarea id="tickareas" name="tickareas"></textarea>
 
               <input type="hidden" id="userid" name="userid" value="{{userid}}">
-              <input type="hidden" id="nattempts" name="nattempts" value="0">
+              <input type="hidden" id="nattempts" name="nattempts" value="1">
 
-              <br><input class="form-submit-button" type="submit" value="Done"></button>
+              <br><input class="form-submit-button" type="submit" value="Done">
             </form>
           </div>
 
