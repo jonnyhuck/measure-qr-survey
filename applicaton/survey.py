@@ -23,27 +23,35 @@ def nowt():
 # reads results from qr code and loads agreement
 @app.route("/<town>/<park>")
 def survey(town, park):
+
+    # verify the town
+    if town in ['Burnley', 'Cannock', 'Carlisle', 'Durham', 'Halifax', 'Harrogate', 'Inverness', 'keighley', 'Kings Lynn', 'Macclesfield', 'Perth', 'Scarbrough', 'Wrexham', 
+                'Manchester', 'Glasgow', 'Edinburgh', 'Dunfermline', 'Falkirk', 'Kilmarnock']:
     
-    # create connection
-    connection = connectdb()
+        # create connection
+        connection = connectdb()
 
-    # load user into database
-    with connection:
-        with connection.cursor() as cursor:
+        # load user into database
+        with connection:
+            with connection.cursor() as cursor:
+                
+                # create a new user
+                # create table `users` (`id_user` INT UNSIGNED NOT NULL AUTO_INCREMENT, `town` VARCHAR(64) NOT NULL, `park` VARCHAR(64) NOT NULL, `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id_user`));
+                sql = "INSERT INTO `users` (`town`, `park`) VALUES (%s, %s)"
+                cursor.execute(sql, (town, park))
+
+            # commit changes to database
+            connection.commit()
             
-            # create a new user
-            # create table `users` (`id_user` INT UNSIGNED NOT NULL AUTO_INCREMENT, `town` VARCHAR(64) NOT NULL, `park` VARCHAR(64) NOT NULL, `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id_user`));
-            sql = "INSERT INTO `users` (`town`, `park`) VALUES (%s, %s)"
-            cursor.execute(sql, (town, park))
+            # get user id
+            userid = cursor.lastrowid
 
-        # commit changes to database
-        connection.commit()
-        
-        # get user id
-        userid = cursor.lastrowid
-
-    # load next page
-    return render_template('pis.html', userid=userid, town=town, park=park)
+        # load next page
+        return render_template('pis.html', userid=userid, town=town, park=park)
+    
+    # if not a real town and park, take to error page
+    else:
+        return render_template('404.html')
 
 
 # reads results from qr code and loads agreement
